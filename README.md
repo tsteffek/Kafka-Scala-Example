@@ -9,10 +9,11 @@ You would need a separate pipeline for every consumer, which would explode the c
 
 ### Kafka's solutions
 
-Kafka Streams aims to solve these issues by being scalable, real-time and fail-safe. Instead of creating a new pipeline you just register a new topic. If necessary, start up some additional brokers and everything works, no down-time needed. Instead of microbatches it uses real-time data, so that every event gets computed as fast as possible. And since it keeps a log of everything that happens, if one part breaks down the lost data can be reproduced easily.
+Kafka Streams aims to solve these issues by being scalable, real-time and fail-safe. Instead of creating a new pipeline you just register a new topic. If necessary, start up some additional brokers and everything works, no down-time needed (these can be started in containers, directly on your machine, wherever you want). Instead of microbatches it uses real-time data, so that every event gets computed as fast as possible. And since it keeps a log of everything that happens, if one part breaks down the lost data can be reproduced easily. All this while being extremely small and fast, making it feasible for both small use-cases and large ones.
 
 Another important detail is that Kafka Streams treat tables (mostly) as streams and vice versa. Breaking it down, a table is just a collection of the latest key value pairs of a stream - Kafka utilizes that to generate tables that are not just snapshots, but will be updated whenever necessary. No other framework currently handles tables and streams at the same time like that.  
 
 ### Sources
+- https://kafka.apache.org/24/documentation/streams/
 - https://www.confluent.io/blog/introducing-kafka-streams-stream-processing-made-simple/
 - https://dzone.com/articles/hands-on-apache-kafka-with-scala
