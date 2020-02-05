@@ -13,6 +13,6 @@ Kafka Streams aims to solve these issues by being scalable, real-time and fail-s
 
 Another important detail is that Kafka Streams treat tables (mostly) as streams and vice versa. Breaking it down, a table is just a collection of the latest key value pairs of a stream - Kafka utilizes that to generate tables that are not just snapshots, but will be updated whenever necessary. No other framework currently handles tables and streams at the same time like that.  
 
-Sources:
+### Sources
 - https://www.confluent.io/blog/introducing-kafka-streams-stream-processing-made-simple/
 - https://dzone.com/articles/hands-on-apache-kafka-with-scala
