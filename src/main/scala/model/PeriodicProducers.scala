@@ -17,13 +17,14 @@ class PeriodicProducer(delay: Int = 0,
    * @param iterator the iterator producing a tuple of (key, value)
    * @return a [[TimerTask]] to be used by a [[Timer]]
    */
-  private def createSelfKillingTimerTask(iterator: Iterator[ProducerRecord[String, String]]): TimerTask = new TimerTask {
-    def run(): Unit = {
-      if (iterator.hasNext)
-        send(iterator.next())
-      else cancel()
+  private def createSelfKillingTimerTask(iterator: Iterator[ProducerRecord[String, String]]): TimerTask =
+    new TimerTask {
+      def run(): Unit = {
+        if (iterator.hasNext)
+          send(iterator.next())
+        else cancel()
+      }
     }
-  }
 }
 
 class PeriodicCountProducer(
